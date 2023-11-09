@@ -236,3 +236,90 @@ const compress = function(string) {
   }
 }
 ```
+
+# Question 4: Checking Uniqueness 
+Write an algorithm that determines whether all the elements in a string are unique. 
+You may not convert the string into an array or use array methods to solve this problem. 
+The algorithm should return a boolean.
+
+Example
+Input: "hello"
+Output: false
+
+Input: "copyright"
+Output: true
+
+# Answer:
+
+```javascript
+const unique = function(string) {
+
+  if (typeof(string) != 'string') {
+    return;
+  }
+  if (string.length <= 1) {
+    return true;
+  }
+
+  // we'll brute force this and just loop twice,
+  // checking each individual letter to see if it repeats
+  // at any point:
+  // starting at index 0 and moving on from there,
+  // we'll see if every element after is a repeat
+  // each iteration of checking element i we can ignore the previous
+  // elements because we already know they aren't a match:
+
+  for (let i = 0; i < string.length; i++){
+    for (let j = i + 1; j <string.length; j++) {
+      if (string.charAt(i) === string.charAt(j)) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+```
+
+# Question 5: Array Sorting
+Write an algorithm that sorts an array without using the sort() method. 
+There are many different sorting algorithms — take the time to read about the following:
+
+Quick sort
+Merge sort
+Heap sort
+Insertion sort
+Bubble sort
+Selection sort
+You may implement any of the above algorithms (or your own) to solve the problem — as long as it doesn't use sort().
+
+Example
+Input: [9, 2, 7, 12]
+Output: [2, 7, 9, 12]
+
+# Quick Sort
+
+```javascript
+const quickSort = function(array) {
+  // base case: we know an array of 1 element is already sorted!
+  if (array.length <= 1) {
+    return array;
+  }
+
+  const pivot = array[0];
+  const smaller = [];
+  const greater = [];
+
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] < pivot) {
+      smaller.push(array[i]);
+    } else {
+      greater.push(array[i]);
+    }
+  }
+
+  return [...quickSort(smaller), pivot, ...quickSort(greater)]
+
+}
+
+```

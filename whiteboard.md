@@ -272,7 +272,7 @@ const unique = function(string) {
   // THIS character matches any of the OTHER characters:
 
   for (let i = 0; i < string.length; i++) {
-    for (let j = i + 1; i < string.length; j++) {
+    for (let j = i + 1; j < string.length; j++) {
       if (string.charAt(i) === string.charAt(j)){
         return false;
       }
@@ -290,12 +290,12 @@ const unique = function(string) {
 Write an algorithm that sorts an array without using the `sort()` method. 
 There are many different sorting algorithms — take the time to read about the following:
 
-Quick sort
-Merge sort
-Heap sort
-Insertion sort
-Bubble sort
-Selection sort
+* Quick sort
+* Merge sort
+* Heap sort
+* Insertion sort
+* Bubble sort
+* Selection sort
 
 You may implement any of the above algorithms (or your own) to solve the problem — 
 as long as it doesn't use `sort()`.
