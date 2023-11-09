@@ -254,7 +254,7 @@ const unique = function(string) {
   // otherwise continue to loop:
   // we know the next character didn't match that first one, so we'll check if 
   // THIS character matches any of the OTHER characters:
-  
+
   for (let i = 0; i < string.length; i++) {
     for (let j = i + 1; i < string.length; j++) {
       if (string.charAt(i) === string.charAt(j)){
@@ -264,4 +264,68 @@ const unique = function(string) {
   }
 
   return true;
+}
+
+###
+# Question #5: Array Sorting
+###
+
+Write an algorithm that sorts an array without using the sort() method. 
+There are many different sorting algorithms — take the time to read about the following:
+
+Quick sort
+Merge sort
+Heap sort
+Insertion sort
+Bubble sort
+Selection sort
+
+You may implement any of the above algorithms (or your own) to solve the problem — 
+as long as it doesn't use sort().
+
+Example:
+* Input: [9, 2, 7, 12]
+* Output: [2, 7, 9, 12]
+
+# Answer with QuickSort
+
+const quickSort = function(array) {
+  
+  // base case: an array of 1 is already sorted!
+
+  if (array.length <= 1) {
+    return array;
+  }
+
+  // We'll partition the array into two parts:
+  // numbers less than the chosen pivot point,
+  // and numbers greater than the chosen pivot point:
+
+  const pivot = array[0];
+  let smaller = [];
+  let greater = [];
+
+  // using the first element in the array as our pivot,
+  // we check each element in the array:
+  // is it greater than or less than the pivot?
+  // push that element into the appropriate array
+
+  for(let i = 1; i < array.length; i++){
+    if (array[i] < pivot) {
+      smaller.push(array[i]);
+    } else {
+      greater.push(array[i]);
+    }
+  }
+
+  // once out of the loop, we want to recursively go through our lists AGAIN,
+  // until we no longer have any elements to loop through
+  
+  // we'll recursively loop through the smaller and greater arrays
+  // until they hit the base case, at which point we'll complete 
+  // each loop of our quickSort method and return a sorted array, which 
+  // gets added to the array of the next quickSort up, and so on:
+  // each time we return a larger array, each one sorted
+
+  return [...quickSort(smaller), pivot, ...quickSort(greater)];
 }
