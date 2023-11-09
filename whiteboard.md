@@ -238,3 +238,30 @@ Example:
 * Output: true
 
 # Answer
+
+const unique = function(string) {
+  if (string === '') {
+    return true;
+  }
+  if(typeof(string) != 'string') {
+    return string;
+  }
+
+  // we'll just brute force this, and loop twice:
+  // for each character in the string, we'll loop through the string again,
+  // and if that character is the same as any of the characters after it,
+  // we'll end everything and return false,
+  // otherwise continue to loop:
+  // we know the next character didn't match that first one, so we'll check if 
+  // THIS character matches any of the OTHER characters:
+  
+  for (let i = 0; i < string.length; i++) {
+    for (let j = i + 1; i < string.length; j++) {
+      if (string.charAt(i) === string.charAt(j)){
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
