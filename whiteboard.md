@@ -30,7 +30,6 @@ const toUrl = function(string) {
   {
     return string[0] + toUrl(string.slice(1));
   }
-
 }
 
 ## Without Recursion
@@ -57,3 +56,25 @@ const toUrl = function(string) {
 
   return urlString;
 }
+
+// THIS IS ASSUMING ANY NUMBER OF SPACES IS ACCEPTABLE
+// if we want to ignore whitespace in the beginning and end, we'll use trim
+// if we want to ignore multiple spaces between words, we can use trim after 
+// replacing each space
+
+# Question #2: Array Deduping
+Write an algorithm that removes duplicates from an array. 
+Do not use a function like filter() to solve this. 
+Once you have solved the problem, demonstrate how it can be solved with filter(). 
+Solve the problem with and without recursion.
+
+Example:
+* Input: [7, 9, "hi", 12, "hi", 7, 53]
+* Output: [7, 9, "hi", 12, 53]
+
+## With Recursion
+
+
+
+## Without Recursion
+
