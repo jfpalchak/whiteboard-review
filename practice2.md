@@ -88,6 +88,10 @@ const dedupe = function(array) {
     }
   });
 
+  // let newArray = array.reduce((list, element) => {
+  //   return list.concat(list.includes(element) ? [] : [element])
+  // }, []);
+
   return cleanArray;
 }
 ```
@@ -249,7 +253,7 @@ Output: false
 Input: "copyright"
 Output: true
 
-# Answer:
+# Without Recursion:
 
 ```javascript
 const unique = function(string) {
@@ -280,6 +284,31 @@ const unique = function(string) {
   return true;
 }
 ```
+# With Recursion:
+```javascript
+const unique = function(string) {
+  if (typeof(string) != 'string') {
+    return;
+  }
+  if (string.length <= 1) {
+    return true;
+  }
+
+  // remove the first element from the rest of the string
+  let head = string[0];
+  let tail = string.substring(1);
+
+  // check to see if the first element appears in the string again,
+  // if it does, return false
+  if (tail.indexOf(head) != -1) {
+    return false;
+  }
+
+  // if it doesn't appear again, let's loop recursively:
+  return unique(tail);
+
+}
+```
 
 # Question 5: Array Sorting
 Write an algorithm that sorts an array without using the sort() method. 
@@ -306,10 +335,15 @@ const quickSort = function(array) {
     return array;
   }
 
+  // with the quick sort, we want to partition our given array into two parts:
+  // an array of elements smaller in value than a chosen pivot element,
+  // and an array of elements greater in value than a chosen pivot element
   const pivot = array[0];
   const smaller = [];
   const greater = [];
 
+  // we loop through our given array and assign each element
+  // to an appropriate array
   for (let i = 1; i < array.length; i++) {
     if (array[i] < pivot) {
       smaller.push(array[i]);
@@ -318,6 +352,9 @@ const quickSort = function(array) {
     }
   }
 
+  // then we recursively loop through each partition and combine them
+  // with the spread operator:
+  // each recursive call of quickSort will return a smaller, sorted array of elements
   return [...quickSort(smaller), pivot, ...quickSort(greater)]
 
 }
