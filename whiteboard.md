@@ -128,3 +128,20 @@ const dedupe = function(array) {
 
   return dedupArray;
 }
+
+# With Filter
+
+const dedupe = function(array) {
+  if (!array[0] || typeof(array) === 'string'){
+    return array;
+  }
+
+  // indexOf returns the index of the FIRST APPEARANCE of that element,
+  // so let's return only the elements whose index is the SAME as the 
+  // index where it FIRST APPEARS, and ignore any element who's index
+  // is NOT the same as the index of it's first appearance:
+
+  const cleanArray = array.filter((element, index, list) => list.indexOf(element) === index); 
+
+  return cleanArray;
+}
