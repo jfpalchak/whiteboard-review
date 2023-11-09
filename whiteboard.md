@@ -237,3 +237,4 @@ Example:
 * Input: "copyright"
 * Output: true
 
+# Answer
