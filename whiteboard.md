@@ -162,5 +162,78 @@ Example:
 * Output: "3ab2c4da"
 
 # With Recursion
+const compress = function(string) {
+  if (string.length === 0 || typeof(string) != 'string') {
+    return string;
+  }
+
+  let firstElement = string[0];
+  let rest = compress(string.slice(1));
+
+  if (!isNaN(Number(rest[0]))){
+    if (firstElement === rest[1]){
+      rest[0] = (Number(rest[0]) + 1);
+      return rest.replace(rest[0], (Number(rest[0]) +1));
+    } else {
+      return firstElement + rest;
+    }
+  } else {
+    if (firstElement === rest[0]) {
+      return (2 + rest);
+    } else {
+      return firstElement + rest;
+    }
+  }
+
+}
 
 # Without Recursion
+
+const compress = function(string) {
+  if (typeof(string) != 'string' || string.length === 0) {
+    return string;
+  }
+
+  let count = 1;
+  let compressedString = '';
+
+  for(let i=0; i < string.length; i++){
+    // if current character repeats again, increase count
+    if (string[i] === string[i+1]){
+      count++;
+    
+    // if the current character does not repeat again, check the count
+    } else {
+      // if the count has not gone up, just concat the current character without the count
+      if (count === 1){
+        compressedString += string[i];
+
+        // otherwise, if the count HAS gone up, concat the current character WITH the count
+      } else {
+        compressedString += count + string[i];
+      }
+
+      // then make sure to reset the count:
+      count = 1;
+    }
+
+  }
+
+  return compressedString;
+
+}
+
+###
+# Question #4: Checking for Uniqueness
+###
+
+Write an algorithm that determines whether all the elements in a string are unique. 
+You may not convert the string into an array or use array methods to solve this problem. 
+The algorithm should return a boolean.
+
+Example:
+* Input: "hello"
+* Output: false
+* Input: "copyright"
+* Output: true
+
