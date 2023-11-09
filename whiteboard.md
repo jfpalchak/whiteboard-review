@@ -62,7 +62,10 @@ const toUrl = function(string) {
 // if we want to ignore multiple spaces between words, we can use trim after 
 // replacing each space
 
+###
 # Question #2: Array Deduping
+###
+
 Write an algorithm that removes duplicates from an array. 
 Do not use a function like filter() to solve this. 
 Once you have solved the problem, demonstrate how it can be solved with filter(). 
@@ -145,3 +148,19 @@ const dedupe = function(array) {
 
   return cleanArray;
 }
+
+###
+# Question #3: Compressing Strings
+###
+
+Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. 
+For instance, aaa would be written as 3a. 
+Solve the problem with and without recursion.
+
+Example:
+* Input: "aaabccdddda"
+* Output: "3ab2c4da"
+
+# With Recursion
+
+# Without Recursion
