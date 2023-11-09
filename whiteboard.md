@@ -1,5 +1,5 @@
 # Question #1: Turning Strings to URLS
-URLs cannot have spaces. Instead, all spaces in a string are replaced with `%20`. 
+URLs cannot have spaces. Instead, all spaces in a string are replaced with`%20`. 
 Write an algorithm that replaces all spaces in a string with `%20`.
 
 You may not use the `replace()` method or regular expressions to solve this problem. 
@@ -71,8 +71,8 @@ const toUrl = function(string) {
 ###
 
 Write an algorithm that removes duplicates from an array. 
-Do not use a function like filter() to solve this. 
-Once you have solved the problem, demonstrate how it can be solved with filter(). 
+Do not use a function like `filter()` to solve this. 
+Once you have solved the problem, demonstrate how it can be solved with `filter()`. 
 Solve the problem with and without recursion.
 
 Example:
@@ -165,7 +165,7 @@ const dedupe = function(array) {
 ###
 
 Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. 
-For instance, aaa would be written as 3a. 
+For instance, `aaa` would be written as `3a`. 
 Solve the problem with and without recursion.
 
 Example:
@@ -185,7 +185,6 @@ const compress = function(string) {
 
   if (!isNaN(Number(rest[0]))){
     if (firstElement === rest[1]){
-      rest[0] = (Number(rest[0]) + 1);
       return rest.replace(rest[0], (Number(rest[0]) +1));
     } else {
       return firstElement + rest;
@@ -288,7 +287,7 @@ const unique = function(string) {
 # Question #5: Array Sorting
 ###
 
-Write an algorithm that sorts an array without using the sort() method. 
+Write an algorithm that sorts an array without using the `sort()` method. 
 There are many different sorting algorithms — take the time to read about the following:
 
 Quick sort
@@ -299,7 +298,7 @@ Bubble sort
 Selection sort
 
 You may implement any of the above algorithms (or your own) to solve the problem — 
-as long as it doesn't use sort().
+as long as it doesn't use `sort()`.
 
 Example:
 * Input: [9, 2, 7, 12]
