@@ -11,6 +11,7 @@ Example:
   
 ## With Recursion
 
+```javascript
 const toUrl = function(string) {
   // termination case
   if(typeof(string) != 'string') {
@@ -31,9 +32,11 @@ const toUrl = function(string) {
     return string[0] + toUrl(string.slice(1));
   }
 }
+```
 
 ## Without Recursion
 
+```javascript
 const toUrl = function(string) {
   // handle exceptions:
   if(typeof(string) != 'string') {
@@ -61,6 +64,7 @@ const toUrl = function(string) {
 // if we want to ignore whitespace in the beginning and end, we'll use trim
 // if we want to ignore multiple spaces between words, we can use trim after 
 // replacing each space
+```
 
 ###
 # Question #2: Array Deduping
@@ -76,6 +80,8 @@ Example:
 * Output: [7, 9, "hi", 12, 53]
 
 ## With Recursion
+
+```javascript
 const dedupe = function(array) {
   if (!array[0]) { // if the array is empty, return an empty array
     return [];
@@ -108,9 +114,11 @@ const dedupe = function(array) {
     return [firstElement, ...shrinkArray]; // if it's NOT in the array, return them both
   }
 }
+```
 
 ## Without Recursion
 
+```javascript
 const dedupe = function(array) {
   // handle exceptions:
   if (array.length <= 1) {
@@ -118,22 +126,24 @@ const dedupe = function(array) {
   }
 
   // instantiate empty array
-  let dedupArray = [];
+  let dedupeArray = [];
 
   // loop through each element and push to empty array
   // but we check to make sure we haven't already pushed into the array
   // if we have, we ignore the element and move on
   array.forEach((element) => {
-    if (!dedupArray.includes(element)) {
-      dedupArray.push(element);
+    if (!dedupeArray.includes(element)) {
+      dedupeArray.push(element);
     }
   });
 
-  return dedupArray;
+  return dedupeArray;
 }
+```
 
 # With Filter
 
+```javascript
 const dedupe = function(array) {
   if (!array[0] || typeof(array) === 'string'){
     return array;
@@ -148,6 +158,7 @@ const dedupe = function(array) {
 
   return cleanArray;
 }
+```
 
 ###
 # Question #3: Compressing Strings
@@ -162,6 +173,8 @@ Example:
 * Output: "3ab2c4da"
 
 # With Recursion
+
+```javascript
 const compress = function(string) {
   if (string.length === 0 || typeof(string) != 'string') {
     return string;
@@ -186,9 +199,11 @@ const compress = function(string) {
   }
 
 }
+```
 
 # Without Recursion
 
+```javascript
 const compress = function(string) {
   if (typeof(string) != 'string' || string.length === 0) {
     return string;
@@ -222,6 +237,7 @@ const compress = function(string) {
   return compressedString;
 
 }
+```
 
 ###
 # Question #4: Checking for Uniqueness
@@ -239,6 +255,7 @@ Example:
 
 # Answer
 
+```javascript
 const unique = function(string) {
   if (string === '') {
     return true;
@@ -265,6 +282,7 @@ const unique = function(string) {
 
   return true;
 }
+```
 
 ###
 # Question #5: Array Sorting
@@ -289,8 +307,9 @@ Example:
 
 # Answer with QuickSort
 
+```javascript
 const quickSort = function(array) {
-  
+
   // base case: an array of 1 is already sorted!
 
   if (array.length <= 1) {
@@ -329,3 +348,4 @@ const quickSort = function(array) {
 
   return [...quickSort(smaller), pivot, ...quickSort(greater)];
 }
+```
