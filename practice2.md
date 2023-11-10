@@ -35,6 +35,7 @@ const toUrl = function(string) {
   return mappedArray.join("");
 }
 ```
+
 ## With Recursion:
 
 ```javascript
@@ -69,7 +70,6 @@ Solve the problem with and without recursion.
 
 Example
 Input: [7, 9, "hi", 12, "hi", 7, 53]
-
 Output: [7, 9, "hi", 12, 53]
 
 # Without Recursion:
@@ -138,7 +138,7 @@ const dedupe = function(array) {
   // same as the index returned from indexOf, then we'll ignore it:
   const cleanArray = array.filter((element, index) => {
     return array.indexOf(element) === index;
-  })
+  });
 
   return cleanArray;
 }
@@ -284,12 +284,14 @@ const unique = function(string) {
   return true;
 }
 ```
+
 # With Recursion:
 ```javascript
 const unique = function(string) {
   if (typeof(string) != 'string') {
     return;
   }
+
   if (string.length <= 1) {
     return true;
   }
